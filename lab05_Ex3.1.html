@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Infographic và video YouTube</title>
+	<meta name="description" content="Trang web trình bày infographic Canva và video YouTube được nhúng bằng HTML.">
+	<style>
+		:root { --ink: #183047; --muted: #607486; --paper: #f4f7f5; --panel: #fff; --accent: #e8754f; --line: #d8e2df; }
+		* { box-sizing: border-box; }
+		body { margin: 0; color: var(--ink); background: var(--paper); font-family: Georgia, "Times New Roman", serif; }
+		main { width: min(1100px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0 72px; }
+		header { max-width: 720px; margin-bottom: 34px; }
+		.eyebrow { margin: 0 0 10px; color: var(--accent); font: 700 .8rem/1.2 Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+		h1 { margin: 0; font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: .98; }
+		.intro, .media-caption { color: var(--muted); font-family: Arial, sans-serif; }
+		.intro { margin: 18px 0 0; font-size: 1.05rem; line-height: 1.6; }
+		.content-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 24px; align-items: start; }
+		.media-block { overflow: hidden; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 12px 28px rgba(24, 48, 71, .08); }
+		.media-heading { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+		h2 { margin: 0; font-size: 1.35rem; }
+		.media-label { color: var(--muted); font: .75rem/1.2 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+		.frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #e8eeeb; }
+		.canva-frame { aspect-ratio: 4 / 3; }
+		.frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+		.media-caption { margin: 0; padding: 15px 20px 18px; font-size: .88rem; line-height: 1.5; }
+		@media (max-width: 760px) { main { padding-top: 36px; } .content-grid { grid-template-columns: 1fr; } .media-heading { align-items: flex-start; flex-direction: column; gap: 6px; } }
+	</style>
+</head>
+<body>
+	<main>
+		<header>
+			<p class="eyebrow">Bài thực hành HTML</p>
+			<h1>Infographic và video trên trang web</h1>
+			<p class="intro">Nội dung trực quan được trình bày bằng một infographic từ Canva và video YouTube nhúng trực tiếp.</p>
+		</header>
+		<section class="content-grid" aria-label="Nội dung trực quan">
+			<article class="media-block">
+				<div class="media-heading"><h2>Infographic</h2><span class="media-label">Canva</span></div>
+				<div class="frame canva-frame">
+					<iframe src="https://www.canva.com/design/DAHV4VXSiAI/lMKGhaBgPc8x7tyJWAvKsg/view?embed" title="Infographic được thiết kế trên Canva" allowfullscreen loading="lazy"></iframe>
+				</div>
+				<p class="media-caption">Infographic được nhúng từ thiết kế Canva.</p>
+			</article>
+			<article class="media-block">
+				<div class="media-heading"><h2>Video hướng dẫn</h2><span class="media-label">YouTube</span></div>
+				<div class="frame">
+					<iframe src="https://www.youtube.com/embed/LHe5-HJbFBM" title="Video YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+				</div>
+				<p class="media-caption">Video YouTube được nhúng bằng thẻ <code>iframe</code>.</p>
+			</article>
+		</section>
+		<footer>
+			<p>© 2026 Bài thực hành HTML. Nội dung infographic thuộc về tác giả trên Canva; video thuộc về chủ sở hữu trên YouTube.</p>
+		</footer>
+	</main>
+</body>
+</html>
