@@ -3,28 +3,43 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Infographic và video YouTube</title>
-	<meta name="description" content="Trang web trình bày infographic Canva và video YouTube được nhúng bằng HTML.">
+	<title>Trần Phương Thảo | Hồ sơ cá nhân</title>
+	<meta name="description" content="Giới thiệu bản thân và các sản phẩm học tập của Trần Phương Thảo.">
 	<style>
 		:root { --ink: #183047; --muted: #607486; --paper: #f4f7f5; --panel: #fff; --accent: #e8754f; --line: #d8e2df; }
 		* { box-sizing: border-box; }
 		body { margin: 0; color: var(--ink); background: var(--paper); font-family: Georgia, "Times New Roman", serif; }
-		main { width: min(1100px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0 72px; }
+		main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0 72px; }
 		header { max-width: 720px; margin-bottom: 34px; }
 		.eyebrow { margin: 0 0 10px; color: var(--accent); font: 700 .8rem/1.2 Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
 		h1 { margin: 0; font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: .98; }
 		.intro, .media-caption { color: var(--muted); font-family: Arial, sans-serif; }
 		.intro { margin: 18px 0 0; font-size: 1.05rem; line-height: 1.6; }
-		.content-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 24px; align-items: start; }
+		.about, .works, .canva-work { margin-top: 36px; padding-top: 26px; border-top: 1px solid var(--line); }
+		.section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+		h2 { margin: 0; font-size: 1.5rem; }
+		.profile-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 28px; align-items: start; }
+		.profile-details { display: grid; grid-template-columns: auto 1fr; gap: 9px 16px; margin: 0; font: .95rem/1.5 Arial, sans-serif; }
+		.profile-details dt { color: var(--ink); font-weight: 700; }
+		.profile-details dd { margin: 0; color: var(--muted); }
+		.profile-note { max-width: 620px; margin: 0; color: var(--muted); font: 1rem/1.7 Arial, sans-serif; }
+		.content-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; }
 		.media-block { overflow: hidden; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 12px 28px rgba(24, 48, 71, .08); }
 		.media-heading { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 18px 20px; border-bottom: 1px solid var(--line); }
-		h2 { margin: 0; font-size: 1.35rem; }
+		h3 { margin: 0; font-size: 1.2rem; }
 		.media-label { color: var(--muted); font: .75rem/1.2 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
 		.frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #e8eeeb; }
 		.canva-frame { aspect-ratio: 4 / 3; }
-		.frame iframe { display: block; width: 100%; height: 100%; border: 0; }
-		.media-caption { margin: 0; padding: 15px 20px 18px; font-size: .88rem; line-height: 1.5; }
-		@media (max-width: 760px) { main { padding-top: 36px; } .content-grid { grid-template-columns: 1fr; } .media-heading { align-items: flex-start; flex-direction: column; gap: 6px; } }
+		.pdf-frame, .image-frame { aspect-ratio: 4 / 3; }
+		.image-frame { padding: 8px; }
+		.frame iframe, .frame img { display: block; width: 100%; height: 100%; border: 0; }
+		.frame img { object-fit: contain; }
+		.media-caption { min-height: 68px; margin: 0; padding: 15px 20px 18px; font-size: .88rem; line-height: 1.5; }
+		.media-caption a { color: #a4462b; font-weight: 700; text-underline-offset: 3px; }
+		.canva-block { max-width: 720px; }
+		footer { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font: .78rem/1.5 Arial, sans-serif; }
+		@media (max-width: 900px) { .profile-grid { grid-template-columns: 1fr; gap: 18px; } .content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+		@media (max-width: 600px) { main { padding-top: 36px; } .section-heading { align-items: flex-start; flex-direction: column; gap: 6px; } .content-grid { grid-template-columns: 1fr; } .media-heading { align-items: flex-start; flex-direction: column; gap: 6px; } }
 	</style>
 </head>
 <body>
@@ -34,20 +49,49 @@
 			<h1>Infographic và video trên trang web</h1>
 			<p class="intro">Nội dung trực quan được trình bày bằng một infographic từ Canva và video YouTube nhúng trực tiếp.</p>
 		</header>
-		<section class="content-grid" aria-label="Nội dung trực quan">
-			<article class="media-block">
-				<div class="media-heading"><h2>Infographic</h2><span class="media-label">Canva</span></div>
+		<section class="about" aria-labelledby="about-title">
+			<div class="section-heading"><h2 id="about-title">Giới thiệu bản thân</h2></div>
+			<div class="profile-grid">
+				<dl class="profile-details">
+					<dt>Họ và tên</dt><dd>Trần Phương Thảo</dd>
+					<dt>Mã sinh viên</dt><dd>B2605375</dd>
+					<dt>Lớp</dt><dd>DI261A2</dd>
+					<dt>Ngành học</dt><dd>Truyền thông đa phương tiện</dd>
+					<dt>Trường</dt><dd>Trường Đại Học Cần Thơ</dd>
+				</dl>
+				<p class="profile-note">Em muốn giới thiệu thêm nhiều về lợi ích của công nghệ số trong học tập lẫn đời sống, đồng thời chia sẻ cách rèn luyện kỹ năng làm bài.</p>
+			</div>
+		</section>
+		<section class="works" aria-labelledby="works-title">
+			<div class="section-heading"><h2 id="works-title">Sản phẩm của tôi</h2></div>
+			<div class="content-grid">
+				<article class="media-block">
+					<div class="media-heading"><h3>Tài liệu học tập</h3><span class="media-label">PDF</span></div>
+					<div class="frame pdf-frame"><iframe src="Lab05_EX1.2.pdf" title="Tài liệu học tập PDF" loading="lazy"></iframe></div>
+					<p class="media-caption">Tài liệu PDF được hiển thị trực tiếp trên trang. <a href="Lab05_EX1.2.pdf" target="_blank" rel="noopener">Mở PDF</a></p>
+				</article>
+				<article class="media-block">
+					<div class="media-heading"><h3>Infographic</h3><span class="media-label">PNG</span></div>
+					<div class="frame image-frame"><img src="Lab05_Ex2.1.png" alt="Infographic do mình thực hiện" loading="lazy"></div>
+					<p class="media-caption">Infographic được trình bày từ tệp hình ảnh PNG.</p>
+				</article>
+				<article class="media-block">
+					<div class="media-heading"><h3>Video hướng dẫn</h3><span class="media-label">YouTube</span></div>
+					<div class="frame">
+						<iframe src="https://www.youtube.com/embed/LHe5-HJbFBM" title="Video YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+					</div>
+					<p class="media-caption">Video YouTube được nhúng bằng thẻ <code>iframe</code>. <a href="https://www.youtube.com/watch?v=LHe5-HJbFBM" target="_blank" rel="noopener">Xem trên YouTube</a></p>
+				</article>
+			</div>
+		</section>
+		<section class="canva-work" aria-labelledby="canva-title">
+			<div class="section-heading"><h2 id="canva-title">Infographic Canva</h2></div>
+			<article class="media-block canva-block">
+				<div class="media-heading"><h3>Infographic</h3><span class="media-label">Canva</span></div>
 				<div class="frame canva-frame">
 					<iframe src="https://www.canva.com/design/DAHV4VXSiAI/lMKGhaBgPc8x7tyJWAvKsg/view?embed" title="Infographic được thiết kế trên Canva" allowfullscreen loading="lazy"></iframe>
 				</div>
 				<p class="media-caption">Infographic được nhúng từ thiết kế Canva.</p>
-			</article>
-			<article class="media-block">
-				<div class="media-heading"><h2>Video hướng dẫn</h2><span class="media-label">YouTube</span></div>
-				<div class="frame">
-					<iframe src="https://www.youtube.com/embed/LHe5-HJbFBM" title="Video YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-				</div>
-				<p class="media-caption">Video YouTube được nhúng bằng thẻ <code>iframe</code>.</p>
 			</article>
 		</section>
 		<footer>
